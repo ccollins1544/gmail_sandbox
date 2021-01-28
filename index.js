@@ -150,10 +150,22 @@ const readGmail = async (auth, q = 'label:inbox') => {
               .then((mResponse) => {
                 if (mResponse.data.messages && Array.isArray(mResponse.data.messages)) {
                   let Subject = mResponse.data.messages[0].payload.headers.find(({ name }) => name === "Subject").value || "";
+                  let To = mResponse.data.messages[0].payload.headers.find(({ name }) => name === "To").value || "";
+                  let From = mResponse.data.messages[0].payload.headers.find(({ name }) => name === "From").value || "";
+                  let Date = mResponse.data.messages[0].payload.headers.find(({ name }) => name === "Date").value || Date.now();
+                  let internalDate = mResponse.data.messages[0].internalDate;
                   let snippet = mResponse.data.messages[0].snippet.trim();
+
+                  // console.log("=".repeat(50).cyan);
+                  // console.log(JSON.stringify(mResponse.data.messages[0], null, 2));
+                  // console.log("=".repeat(50).cyan);
 
                   return {
                     Subject,
+                    To,
+                    From,
+                    Date: utils.formatDate(Date),
+                    internalDate,
                     snippet
                   }
                 }
