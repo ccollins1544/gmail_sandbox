@@ -4,7 +4,7 @@ require('colors');
 const debug = require('debug')('gmail');
 const fs = require('fs');
 const path = require('path');
-const utils = require('./utils');
+const Utils = require('./utils');
 const readline = require('readline');
 const { google } = require('googleapis');
 const SCOPES = [process.env.GOOGLE_SCOPE || 'https://www.googleapis.com/auth/gmail.readonly'];
@@ -135,14 +135,26 @@ const readGmail = async (auth, q = 'label:inbox') => {
     userId: 'me',
     ...(q && { q })
   }
+  // console.log("============[ REQUEST ]=================".rainbow);
+  // console.log(request);
+  // console.log("=========================================".rainbow);
 
   let messages = await gmail.users.messages.list(request)
     .then(async (response) => {
       request.q = 'FULL';
       let results = [];
 
+      // console.log("============[ response ]=================".magenta);
+      // console.log(response.data);
+      // console.log("=========================================".magenta);
+
       if (response.data && response.data.messages && Array.isArray(response.data.messages)) {
-        results = await utils.asyncReduce(response.data.messages, async (acc, msg) => {
+
+        // console.log("============[ MESSAGES ]=================".magenta);
+        // console.log(response.data.messages);
+        // console.log("=========================================".magenta);
+
+        results = await Utils.asyncReduce(response.data.messages, async (acc, msg) => {
           const { id } = msg;
           if (id) {
             request.id = id;
@@ -156,15 +168,15 @@ const readGmail = async (auth, q = 'label:inbox') => {
                   let internalDate = mResponse.data.messages[0].internalDate;
                   let snippet = mResponse.data.messages[0].snippet.trim();
 
-                  // console.log("=".repeat(50).cyan);
+                  // console.log("============[ MSG ]======================".magenta);
                   // console.log(JSON.stringify(mResponse.data.messages[0], null, 2));
-                  // console.log("=".repeat(50).cyan);
+                  // console.log("=========================================".magenta);
 
                   return {
                     Subject,
                     To,
                     From,
-                    Date: utils.formatDate(Date),
+                    Date: Utils.formatDate(Date),
                     internalDate,
                     snippet
                   }

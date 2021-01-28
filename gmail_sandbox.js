@@ -147,12 +147,11 @@ const main = async (inputFunction, inputParams) => {
   let results;
   try {
     if (gmailInstance[args.inputFunction]) {
-      results = await keepTokenAlive(gmailController.readGmail);
-      // results = await keepTokenAlive(gmailInstance.readGmail);
+      // results = await keepTokenAlive(gmailController.readGmail); // Works! with gmail controller
 
-      // let auth = await keepTokenAlive();
-      // args.inputParams = { ...inputParams, auth, 'userId': 'me' };
-      // results = await gmailInstance[args.inputFunction](args.inputParams);
+      let auth = await keepTokenAlive();
+      args.inputParams = { ...inputParams, auth, 'userId': 'me' };
+      results = await gmailInstance[args.inputFunction](args.inputParams);
 
     } else {
       throw Error(`Invalid function: ${args.inputFunction}`.brightRed);
