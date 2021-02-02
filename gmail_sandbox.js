@@ -100,15 +100,21 @@ const keepTokenAlive = async (callback) => {
 }
 
 // 1.2 Check Access
-const checkAccess = async () => {
+const checkAccess = async (callback) => {
   let gdrive;
   try {
     // Check if we have access 
-    gdrive = await gmailInstance.useServiceAccountAuth(creds_service_user);
+    gdrive = await gmailInstance.useServiceAccountAuth(creds_service_user, callback);
   } catch (ex) {
     debug("===============[ Error ]=================".red);
     debug(ex.stack);
     debug("=========================================".red);
+  }
+
+  if (!callback) {
+    debug("returning gdrive service".yellow);
+  } else {
+    debug("returning callback results".yellow);
   }
 
   return gdrive;
