@@ -7,8 +7,6 @@
 /* ===============[ Libraries ]========================*/
 process.env.DOTENV_LOADED || require("dotenv").config();
 require("colors");
-const path = require("path");
-const fs = require("fs");
 const moment = require('moment-timezone');
 
 /**

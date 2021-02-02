@@ -175,7 +175,7 @@ const EXAMPLES = [
   },
 ];
 
-const EXAMPLE = EXAMPLES.find(({ enabled }) => enabled === true)
+const EXAMPLE = EXAMPLES.find(({ enabled }) => enabled === true);
 
 /** 2.2 
  * Example Usage: 
