@@ -14,7 +14,9 @@ Allows you to read Gmail and read Google Drive files through code. I expose Goog
 - [ ] Create **OAuth Client ID** credentials, select **Application Type: Desktop App**, and save it as **gmail-credentials.json** under the config folder.
 - [ ] Share the google drive folder with your service account. Can be pulled from **google-drive-creds.json** next to **client_email**
 - [ ] Install packages with `npm i`
-- [ ] Run `node --trace-warnings gmail_sandbox.js` and follow the link to allow access, copy the code and past it back in the node app, done!
+- [ ] Run `node --trace-warnings gmail_sandbox.js` and follow the link to allow access, copy the code and past it back in the node app.
+- [ ] Create a .env file and copy/paste everything from .env.sample to it. The only thing missing is `GDRIVE_ROOT_FOLDER` Which will need to be equal to the unique id pulled from the google drive folder that you shared to the **client_email**.
+- [ ] Test it! `node --trace-warnings gmail_sandbox.js`
 
 ## 🚀 Quick start
 
@@ -72,6 +74,14 @@ npm i
 ```
 
 ## 4. 🥑 Usage
+
+Create a .env file and copy/paste everything from .env.sample to it. The only thing missing is `GDRIVE_ROOT_FOLDER` Which will need to be equal to the unique id pulled from the google drive folder that you shared to the **client_email**. 
+
+- [ ] Naviate to the folder you shared and copy the last part of the URL. See image for reference. 
+
+
+![](assets/GDRIVE_ROOT_FOLDER.png)
+
 
 ### First Run 
 
