@@ -2,7 +2,10 @@
 
 ![googleapis](https://img.shields.io/node/v/googleapis?label=googleapis)
 
-Allows you to read gmail and read google drive files through code. I expose google api to where you can easily write more functions later. (sendEmail, WriteFiles, DeleteFiles, etc) It's just a sandbox into building bigger applications that utilizes google OAuth2 for GMAIL and JWT for Google Drive. 
+Allows you to read Gmail and read Google Drive files through code. I expose Google API to where you can easily write more functions later. (sendEmail, WriteFiles, DeleteFiles, etc) It's just a sandbox into building bigger applications that utilizes google OAuth2 for Gmail and JWT for Google Drive.
+
+
+![](assets/gmail-sandbox-preview.png)
 
 ## 🏃 TLDR
 - [ ] Navigate to [Google API Console](https://console.developers.google.com/) select or create your google project. 
