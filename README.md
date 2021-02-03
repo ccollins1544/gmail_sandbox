@@ -21,6 +21,8 @@ Allows you to read gmail and read google drive files through code. I expose goog
 git clone git@github.com:ccollins1544/gmail_sandbox.git
 
 ```
+
+
 ### 2. 📜 Create Google Credentials 
 #### Enable Google APIs
 
@@ -30,6 +32,8 @@ git clone git@github.com:ccollins1544/gmail_sandbox.git
 - [ ] Double check that your in the correct email and project and then enable the APIs: **GMAIL API** and **Google Drive API**
 - [ ] In the sidebar on the left, expand **APIs & auth > Credentials**
 NOTE: GMAIL will use **OAuth 2.0 Client IDs** and Google Drive will use **Service Accounts** 
+
+
 
 #### Create Service Account Credentials for Google Drive API 
 
@@ -46,6 +50,8 @@ NOTE: GMAIL will use **OAuth 2.0 Client IDs** and Google Drive will use **Servic
 **NOTE:** Navigate to [Google drive](https://drive.google.com/) and log into the email connected to the project your api key is tied to. 
 Inside of your **google-drive-creds.json** you should have a **client_email** copy that! 
 Right click on the folder you want to grant access to the service account, select share, and paste the service account email and **done!**
+
+
 #### Create OAuth 2.0 Client IDs Credentials for GMAIL API 
 
 - [ ] Click **"+ Create Credentials"** button and select **OAuth Client ID** 
@@ -53,6 +59,8 @@ Right click on the folder you want to grant access to the service account, selec
 
 - [ ] Download your newly created JSON key file and move it to this app under the config folder and rename it to be **gmail-credentials.json**
 **NOTE:** At the time of this writing it's called 'Desktop App' but I've seen multiple tutorials that call it something else. See Example of what this JSON object should look like [here](#service-account).
+
+
 
 ### 3. 📦 Install Node Packages 
 
@@ -62,15 +70,26 @@ npm i
 
 ## 4. 🥑 Usage
 
-First Run 
+### First Run 
+
 
 ```shell 
 node --trace-warnings gmail_sandbox.js
 ```
 
-And this should give you a url where you'll need to copy/paste into your browser. Click allow access and copy the provided code and paste it back into the node app. If everything went well you should ge a token file generated under `.keys/gmail-token.json`
+And this should give you a url where you'll need to copy/paste into your browser. 
 
-Currently you can invoke the following commands
+![](assets/authorize-this-app.png)
+
+
+Click allow access and copy the provided code and paste it back into the node app. 
+
+![](assets/enter-code.png)
+
+If everything went well you should ge a token file generated under `.keys/gmail-token.json`
+
+
+### Currently you can invoke the following commands
 
 ```shell
 node --trace-warnings gmail_sandbox.js
@@ -80,9 +99,10 @@ node gmail_sandbox.js --inputFunction="listFiles" --gDrivePrefix="a"
 
 **NOTE:** The first one uses the parameters defined in the variable TESTS where `enabled: true` 
 
-### 📂 Example JSON Credentials 
 
-#### OAuth Client ID
+## 📂 Example JSON Credentials 
+
+### OAuth Client ID
 
 ```JSON
 {
@@ -101,7 +121,7 @@ node gmail_sandbox.js --inputFunction="listFiles" --gDrivePrefix="a"
 }
 ```
 
-#### Service Account 
+### Service Account 
 
 ```JSON
 {
