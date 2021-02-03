@@ -9,7 +9,7 @@ Allows you to read Gmail and read Google Drive files through code. I expose Goog
 
 ## 🏃 TLDR
 - [ ] Navigate to [Google API Console](https://console.developers.google.com/) select or create your google project. 
-- [ ] Enable the APIs: **GMAIL API** and **Google Drive API**
+- [ ] Enable the APIs: **Gmail API** and **Google Drive API**
 - [ ] Create **Service Account** credentials and save it as **google-drive-creds.json** under the config folder.
 - [ ] Create **OAuth Client ID** credentials, select **Application Type: Desktop App**, and save it as **gmail-credentials.json** under the config folder.
 - [ ] Share the google drive folder with your service account. Can be pulled from **google-drive-creds.json** next to **client_email**
@@ -31,12 +31,12 @@ git clone git@github.com:ccollins1544/gmail_sandbox.git
 ### 2. 📜 Create Google Credentials 
 #### Enable Google APIs
 
-- [ ] Log into the gmail account you want to have access to **Read Emails** and **Read Google Drive**
+- [ ] Log into the Gmail account you want to have access to **Read Emails** and **Read Google Drive**
 - [ ] Navigate to [Google API Console](https://console.developers.google.com/)
 - [ ] Create a **NEW PROJECT** or select the project you want to connect this application too
-- [ ] Double check that your in the correct email and project and then enable the APIs: **GMAIL API** and **Google Drive API**
+- [ ] Double check that your in the correct email and project and then enable the APIs: **Gmail API** and **Google Drive API**
 - [ ] In the sidebar on the left, expand **APIs & auth > Credentials**
-NOTE: GMAIL will use **OAuth 2.0 Client IDs** and Google Drive will use **Service Accounts** 
+NOTE: Gmail will use **OAuth 2.0 Client IDs** and Google Drive will use **Service Accounts** 
 
 
 
@@ -57,7 +57,7 @@ Inside of your **google-drive-creds.json** you should have a **client_email** co
 Right click on the folder you want to grant access to the service account, select share, and paste the service account email and **done!**
 
 
-#### Create OAuth 2.0 Client IDs Credentials for GMAIL API 
+#### Create OAuth 2.0 Client IDs Credentials for Gmail API 
 
 - [ ] Click **"+ Create Credentials"** button and select **OAuth Client ID** 
 - [ ] Select **Application Type: Desktop App**
@@ -77,7 +77,7 @@ npm i
 
 Create a .env file and copy/paste everything from .env.sample to it. The only thing missing is `GDRIVE_ROOT_FOLDER` Which will need to be equal to the unique id pulled from the google drive folder that you shared to the **client_email**. 
 
-- [ ] Naviate to the folder you shared and copy the last part of the URL. See image for reference. 
+- [ ] Navigate to the folder you shared and copy the last part of the URL. See image for reference. 
 
 
 ![](assets/GDRIVE_ROOT_FOLDER.png)
