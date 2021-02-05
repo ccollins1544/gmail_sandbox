@@ -156,3 +156,12 @@ node gmail_sandbox.js --inputFunction="listFiles" --gDrivePrefix="a"
  - [**LinkedIn**: https://www.linkedin.com/in/ccollins1544/](https://www.linkedin.com/in/ccollins1544/)
  - [**GitHub**: https://github.com/ccollins1544](https://github.com/ccollins1544)
  - [**Portfolio**: https://ccollins.io](https://ccollins.io)
+ - [**📫 chris@ccollins.io**](mailto:chris@ccollins.io)
+
+## ⭐ Contribution 
+
+If you want to contribute just open an issue and send your PR with a good description about it. 
+
+NOTE: Most of the inspiration of this sandbox code came from [node-google-drive](https://www.npmjs.com/package/node-google-drive) package. The reason why I couldn't just use node-google-drive package was because the gmail api uses token based credentials whereas google drive uses the service account credentials. Unless I am totally misunderstanding something as far as I know I can't use a service account with gmail api. If I am wrong please email me and let me know how.
+
+That being said, I wanted to understand the difference (service account credentiasl vs token credentials) and that is why in this app you will notice I use both (_this.service and _this.service2). Also looking through the code on node-google-drive package it looks like they started writing functions to handle token credentials but didn't complete it. Feel free to contribute to this project but just realize this is sandbox code and if the code base gets much bigger I recommend doing a PR to the node-google-drive project which is probably what I'll end up doing eventually.
